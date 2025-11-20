@@ -313,7 +313,7 @@ static int tc9563_pwrctrl_set_tx_amplitude(struct tc9563_pwrctrl_ctx *ctx,
 		break;
 	default:
 		return -EINVAL;
-	};
+	}
 
 	struct tc9563_pwrctrl_reg_setting tx_amp_seq[] = {
 		{TC9563_PORT_ACCESS_ENABLE, port_access},
@@ -348,7 +348,7 @@ static int tc9563_pwrctrl_disable_dfe(struct tc9563_pwrctrl_ctx *ctx,
 		break;
 	default:
 		return -EINVAL;
-	};
+	}
 
 	struct tc9563_pwrctrl_reg_setting disable_dfe_seq[] = {
 		{TC9563_PORT_ACCESS_ENABLE, port_access},
@@ -411,7 +411,7 @@ static int tc9563_pwrctrl_parse_device_dt(struct tc9563_pwrctrl_ctx *ctx, struct
 	if (!of_device_is_available(node)) {
 		cfg->disable_port = true;
 		return 0;
-	};
+	}
 
 	ret = of_property_read_u32(node, "aspm-l0s-entry-delay-ns", &cfg->l0s_delay);
 	if (ret && ret != -EINVAL)
